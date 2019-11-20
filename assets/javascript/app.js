@@ -30,15 +30,10 @@ var config = {
   
   var database = firebase.database();
 
-// ****** NEED TO DECIDE WHAT TYPE OF DATA TO STORE
-//   var playerone = 0;
-//   var playertwo = 0;
-//   $("#userChoice").on("click", function() {
-//       userChoice++; 
-//   });
-//   var chat;
+  var players = database.ref("/players");
+  var chat = database.ref("/chat");
+
 //   database.ref().set({
-//       usercount: userChoice
 //   })
 
 // ================
@@ -46,6 +41,19 @@ var config = {
 // ================
 
 $(document).ready(function(){
+
+    // Global Variables
+    var playerName
+    var player1Enter = false;
+    var player2Enter = false;
+    var playerScores = {
+        name: "",
+        choice: "",
+        wins: 0,
+        losses: 0,
+    },
+        resetId;
+
 
     // User types in name
     var playeroneName = document.getElementById("username").value;
