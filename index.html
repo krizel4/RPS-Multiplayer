@@ -14,21 +14,62 @@
         <p class="lead">Rock Paper Scissors. You know how this goes.</p>
     </div>
     <div class="container">
+
+        <!-- INPUT FOR NAME  -->
+        <form>
+            <div class="form-group">
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your Name">
+                  <small id="nameinstruction" class="form-text text-muted">Enter your name.</small>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+              
+        <!-- PLAYER NAMES-->
         <div class="row">
-            <div class="col-md card">
-                Player One
-            </div>
-            <div class="col-md card">
-                Player Two
-            </div>
+            <div class="col-md card" id="playerone-name"></div>
+            <div class="col-md card" id="playertwo-name"></div>
         </div>
 
         <!-- GAMEBOARD -->
         <div class="row">
-            <div class="col-md" id="player-one"></div>
-            <div class="col-md" id="player-two"></div>
+            <div class="col-md" id="playerone-choices"></div>
+            <div class="col-md" id="playertwo-choices"></div>
         </div>
 
+         <!-- SCOREBOARD -->
+         <div class="row">
+            <div class="col-md" id="playerone-score"></div>
+            <div class="col-md" id="playertwo-score"></div>
+        </div>
+
+        <!-- CHAT FEATURE -->
+        <div class="form group">
+            <div class="users">-</div>
+                <div class="messages"></div>
+                    <form class="message-form" onsubmit="return false;">
+                        <input class="message-form__input" placeholder="Type a message.." type="text"/>
+                        <input class="message-form__button" value="Send" type="submit"/>
+                    </form>
+        </div>
+
+        <!-- MODAL THAT ANNOUNCES WINNER -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="winner-loser"></h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body" id="rps-played"></div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
     </div><!-- THIS ENDS THE CONTAINER -->
 
