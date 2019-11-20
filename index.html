@@ -1,75 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Rock Paper Scissors</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
-    <div class="jumbotron">
-        <h1 class="display-4">The Classic</h1>
-        <p class="lead">Rock Paper Scissors. You know how this goes.</p>
-    </div>
+
     <div class="container">
+
+        <div class="jumbotron text-center">
+            <h1 class="display-4">Rock : Paper : Scissors</h1>
+            <p class="lead">A classic. You know how this goes.</p>
+        </div>
 
         <!-- INPUT FOR NAME  -->
         <form>
             <div class="form-group">
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your Name">
-                  <small id="nameinstruction" class="form-text text-muted">Enter your name.</small>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </form>
-              
+                <input type="text" class="form-control" id="username" aria-describedby="emailHelp"
+                    placeholder="Enter your name to start...">
+                <small id="nameinstruction" class="form-text text-muted">Enter your name.</small>
+            </div>
+            <button type="submit" class="btn btn-dark">Start</button>
+        </form>
+        <div class="col-md-12 post-login">
+            <p class="lead" id="playeroneName"></p>
+        </div>
+
         <!-- PLAYER NAMES-->
         <div class="row">
-            <div class="col-md card" id="playerone-name"></div>
-            <div class="col-md card" id="playertwo-name"></div>
+            <div class="col-md card" id="playeroneName"></div>
+            <div class="col-md card" id="playertwoName"></div>
         </div>
 
-        <!-- GAMEBOARD -->
+        <!-- GAMEBOARD: PLAYER ONE -->
         <div class="row">
-            <div class="col-md" id="playerone-choices"></div>
-            <div class="col-md" id="playertwo-choices"></div>
+            <div class="col-md-12">
+                <p class="lead" id="playeroneName">Waiting for Player 1</p>
+                <strong>Wins: </strong><span id="playeroneScore"></span><br />
+                <strong>Losses: </strong><span id="playertwoScore"></span>
+            </div>
         </div>
 
-         <!-- SCOREBOARD -->
-         <div class="row">
-            <div class="col-md" id="playerone-score"></div>
-            <div class="col-md" id="playertwo-score"></div>
+        <div class="row">
+            <div class="col-md" id="playeroneChoices"></div>
+        </div>
+
+        <!-- GAMEBOARD: PLAYER TWO -->
+        <div class="row">
+            <div class="col-md-12">
+                <p class="lead" id="playeroneName">Waiting for Player 1</p>
+                <strong>Wins: </strong><span id="playeroneScore"></span><br />
+                <strong>Losses: </strong><span id="playertwoScore"></span>
+            </div>
+        </div>
+        <div class="col-md" id="playertwoChoices"></div>
+
+
+        <!-- SCOREBOARD -->
+        <div class="row">
+            <div class="col-md" id="playeroneScore"></div>
+            <div class="col-md" id="playertwoScore"></div>
         </div>
 
         <!-- CHAT FEATURE -->
         <div class="form group">
             <div class="users">-</div>
-                <div class="messages"></div>
-                    <form class="message-form" onsubmit="return false;">
-                        <input class="message-form__input" placeholder="Type a message.." type="text"/>
-                        <input class="message-form__button" value="Send" type="submit"/>
-                    </form>
+            <div class="messages"></div>
+            <form class="message-form" onsubmit="return false;">
+                <input class="message-form__input" placeholder="Type a message..." type="text" />
+                <input class="message-form__button" value="Send" type="submit" />
+            </form>
         </div>
 
         <!-- MODAL THAT ANNOUNCES WINNER -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="winner-loser"></h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
+                        <h5 class="modal-title" id="winner-loser"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
                     <div class="modal-body" id="rps-played"></div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
                     </div>
-                  </div>
                 </div>
-              </div>
+            </div>
+        </div>
 
     </div><!-- THIS ENDS THE CONTAINER -->
 
@@ -83,4 +111,5 @@
     <!-- MAIN GAME LOGIC -->
     <script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
+
 </html>
